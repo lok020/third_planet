@@ -27,6 +27,14 @@ class SettingPage extends StatelessWidget {
             onChanged: (value) {
               Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
             },
+            thumbIcon: WidgetStateProperty.resolveWith<Icon?>(
+              (Set<WidgetState> states) {
+                final isDark = Provider.of<ThemeProvider>(context, listen: false).isDarkMode;
+                return isDark
+                    ? Icon(Icons.dark_mode, color: Colors.amber[100])
+                    : Icon(Icons.light_mode, color: Colors.amber[400]);
+              },
+            ),
           ),
         ],),
       )
