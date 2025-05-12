@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:third_planet/pages/home_page.dart';
+import 'package:third_planet/pages/earth_page.dart';
 import 'package:third_planet/pages/setting_page.dart';
 import 'package:third_planet/pages/about_page.dart';
 
@@ -26,6 +27,14 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.public),
+            title: const Text('E A R T H'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const EarthPage()));
             },
           ),
           ListTile(
