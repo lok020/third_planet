@@ -12,7 +12,7 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('A B O U T')),
+      appBar: AppBar(title: const Text('About')),
       drawer: MyDrawer(),
       body: Container(
         decoration: BoxDecoration(

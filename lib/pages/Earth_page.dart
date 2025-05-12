@@ -13,7 +13,7 @@ class _EarthPageState extends State<EarthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(title: const Text('E A R T H')),
+      appBar: AppBar(title: const Text('Earth')),
       drawer: MyDrawer(),
     );
   }
