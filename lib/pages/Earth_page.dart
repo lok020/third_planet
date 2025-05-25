@@ -60,8 +60,14 @@ class _EarthPageState extends State<EarthPage> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Most recent image of Earth: $mostRecentImageDate',
-                    style: const TextStyle(fontSize: 20),
+                    'Most recent image of Earth:',
+                    style: const TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    '$mostRecentImageDate',
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               );
