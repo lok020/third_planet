@@ -19,10 +19,15 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.public,  // This is the earth/globe icon
-              size: 300,
-              color: Theme.of(context).colorScheme.inversePrimary,
+            AnimatedRotation(
+              turns: 150,
+              duration: const Duration(hours: 1),
+              curve: Curves.linear,
+              child: Icon(
+                Icons.public,
+                size: 300,
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
             const SizedBox(height: 16),  // Add some spacing between icon and text
             const Text('The third planet in the solar system', 
