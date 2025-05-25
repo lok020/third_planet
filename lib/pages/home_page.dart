@@ -13,8 +13,23 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(title: const Text('H O M E')),
+      appBar: AppBar(title: const Text('Home')),
       drawer: MyDrawer(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.public,  // This is the earth/globe icon
+              size: 300,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
+            const SizedBox(height: 16),  // Add some spacing between icon and text
+            const Text('The third planet in the solar system', 
+              style: TextStyle(fontSize: 24)),
+          ],
+        ),
+      ),
     );
   }
 }
