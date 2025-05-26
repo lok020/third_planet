@@ -44,24 +44,45 @@ class _EarthPageState extends State<EarthPage> {
               if (res.isEmpty) {
                 return const Text('No data available');
               }
-              final mostRecentImageDate = res[0]['date'];
+              final mostRecentImageDate = res[res.length-1]['date'];
               final mostRecentImageDateYear = mostRecentImageDate.substring(0, 4);
               final mostRecentImageDateMonth = mostRecentImageDate.substring(5, 7);
               final mostRecentImageDateDay = mostRecentImageDate.substring(8, 10);
-              final mostRecentImageName = res[0]['image'];
+              final mostRecentImageName = res[res.length-1]['image'];
+              final mostRecentImageCaption = res[res.length-1]['caption'];
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    mostRecentImageCaption,
+                    style: const TextStyle(fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
                   Image.network(
                     '${Env.imageUrl}/archive/natural/$mostRecentImageDateYear/$mostRecentImageDateMonth/$mostRecentImageDateDay/png/$mostRecentImageName.png',
                     height: 300,
                     width: 300,
                     fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: SizedBox(
+                          height: 300,
+                          width: 300,
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                                : null,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   const SizedBox(height: 16),
                   Text(
                     'Most recent image of Earth:',
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                   Text(
