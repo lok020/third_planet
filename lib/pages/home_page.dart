@@ -20,14 +20,12 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          Center(
-            child: Image.asset(
-              'assets/images/earth_home.png',
-              width: MediaQuery.of(context).size.width * 2,
-              height: MediaQuery.of(context).size.height * 0.95,
-              fit: BoxFit.fitHeight,
-              alignment: Alignment.topLeft,
-            ),
+          Image.asset(
+            'assets/images/earth_home.png',
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            fit: BoxFit.cover,
+            alignment: Alignment.topLeft,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 90.0, left: 20.0),
