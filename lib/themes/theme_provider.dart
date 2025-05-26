@@ -3,7 +3,7 @@ import 'package:third_planet/themes/light_mode.dart';
 import 'package:third_planet/themes/dark_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  ThemeData _themeData = lightMode;
+  ThemeData _themeData = darkMode;
 
   // theme data getter
   ThemeData get themeData => _themeData;
