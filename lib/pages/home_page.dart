@@ -12,28 +12,35 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(title: const Text('Home')),
-      drawer: MyDrawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedRotation(
-              turns: 150,
-              duration: const Duration(hours: 1),
-              curve: Curves.linear,
-              child: Icon(
-                Icons.public,
-                size: 300,
-                color: Theme.of(context).colorScheme.primary,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
+      drawer: const MyDrawer(),
+      extendBodyBehindAppBar: true,
+      body: Stack(
+        children: [
+          Center(
+            child: Image.asset(
+              'assets/images/earth_home.png',
+              width: MediaQuery.of(context).size.width * 2,
+              height: MediaQuery.of(context).size.height * 0.95,
+              fit: BoxFit.fitHeight,
+              alignment: Alignment.topLeft,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 90.0, left: 20.0),
+            child: Text(
+              'Third Planet',
+              style: TextStyle(
+                fontSize: 36,
+                color: Theme.of(context).colorScheme.inversePrimary,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),  // Add some spacing between icon and text
-            const Text('The third planet in the solar system', 
-              style: TextStyle(fontSize: 24)),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
